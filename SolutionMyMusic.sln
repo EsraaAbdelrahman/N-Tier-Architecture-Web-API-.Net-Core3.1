@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{1F3E72D8-2D65-48F9-9DDA-E630230C5F18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.API", "Web.API", "{B0FB7B5E-8AA7-4EC6-A8B4-263929E234FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Client", "Web.Client", "{41DD991E-0A09-45AB-986B-DE9C8146E9AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FBD07613-D034-485A-B118-4C47925FD528}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0FB7B5E-8AA7-4EC6-A8B4-263929E234FF} = {1F3E72D8-2D65-48F9-9DDA-E630230C5F18}
+		{41DD991E-0A09-45AB-986B-DE9C8146E9AA} = {1F3E72D8-2D65-48F9-9DDA-E630230C5F18}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A7D8808-F591-4958-A968-11DD51D2CF58}
+	EndGlobalSection
+EndGlobal
