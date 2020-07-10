@@ -11,8 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
+using MyMusic.Core.Repositories;
 using MyMusic.Core.UnitOfWork;
 using MyMusic.Data.Context;
+using MyMusic.Data.MongoDB.Repositories;
+using MyMusic.Data.MongoDB.Setting;
 using MyMusic.Data.UnitOfWork;
 
 namespace MyMusic.API
@@ -32,6 +36,24 @@ namespace MyMusic.API
             services.AddControllers();
             services.AddDbContext<MyMusicDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MyMusic.Data")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            //configiration of mongo
+            services.Configure<Settings>(
+            options =>
+            {
+                options.ConnectionString = Configuration.GetValue<string>("MongoDB:ConnectionString");
+                options.Database = Configuration.GetValue<string>("MongoDB:Database");
+            });
+
+            //Add one object for monog driver  on application
+            services.AddSingleton<IMongoClient, MongoClient>(
+             _ => new MongoClient(Configuration.GetValue<string>("MongoDB:ConnectionString")));
+
+            //for each request we need to create db settings
+            services.AddTransient<IDatabaseSettings, DatabaseSettings>();
+
+            services.AddScoped<IComposerRepository, ComposerRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

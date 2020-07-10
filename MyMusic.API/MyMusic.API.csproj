@@ -13,9 +13,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MongoDB.Driver" Version="2.11.0-beta2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyMusic.Data.MongoDB\MyMusic.Data.MongoDB.csproj" />
     <ProjectReference Include="..\MyMusic.Data\MyMusic.Data.csproj" />
     <ProjectReference Include="..\MyMusic.Services\MyMusic.Services.csproj" />
   </ItemGroup>
