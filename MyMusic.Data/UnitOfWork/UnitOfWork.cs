@@ -14,7 +14,7 @@ namespace MyMusic.Data.UnitOfWork
         private readonly MyMusicDbContext _context;
         private IMusicRepository _musicRepository;
         private IArtistRepository _artistRepository;
-
+        private IUserRepository _userRepository;
         public UnitOfWork(MyMusicDbContext context)
         {
             this._context = context;
@@ -23,6 +23,7 @@ namespace MyMusic.Data.UnitOfWork
 
         public IArtistRepository Artists => _artistRepository = _artistRepository ?? new ArtistRepository(_context);
 
+        public IUserRepository Users => _userRepository = _userRepository ?? new UserRepository(_context);
         public async Task<int> CommitAsync()
         {
             return await _context.SaveChangesAsync();

@@ -13,6 +13,8 @@ namespace MyMusic.Data.Context
 
         public DbSet<Artist> Artists { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         public MyMusicDbContext(DbContextOptions<MyMusicDbContext> options) : base(options)
         {
 
@@ -22,6 +24,8 @@ namespace MyMusic.Data.Context
         {
             modelBuilder.ApplyConfiguration(new MusicConfiguration());
             modelBuilder.ApplyConfiguration(new ArtistConfiguration());
+            modelBuilder
+              .ApplyConfiguration(new UserConfiguration());
 
         }
 

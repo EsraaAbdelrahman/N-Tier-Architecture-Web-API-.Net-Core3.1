@@ -10,6 +10,7 @@ namespace MyMusic.Core.UnitOfWork
     {
         IMusicRepository Musics { get; }
         IArtistRepository Artists { get; }
+        IUserRepository Users { get; }
         Task<int> CommitAsync();
     }
 }
